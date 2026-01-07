@@ -11,21 +11,32 @@ class OnboardScreen extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.all(20.0),
             child: Text(
               'Start free Conversation',
               style: GoogleFonts.poppins(
                 fontSize: 43,
                 height: 1.4,
                 fontWeight: FontWeight.w600,
+                color: Color(0xFF1A1A4B),
               ),
             ),
           ),
 
-          SizedBox(height: 45),
+          SizedBox(height: 5),
 
-          Text(
-            'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+
+            child: Text(
+              'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
+              // textAlign: TextAlign.center,
+              style: GoogleFonts.onest(
+                fontSize: 16,
+                height: 1.2,
+                color: Color(0xFF1F1E58),
+              ),
+            ),
           ),
         ],
       ),
