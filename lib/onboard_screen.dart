@@ -8,16 +8,26 @@ class OnboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Image.asset('assets/images/onboarding.png')),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Text(
-          'Start free Conversation',
-          style: GoogleFonts.poppins(
-            fontSize: 43,
-            height: 1.4,
-            fontWeight: FontWeight.w600,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Text(
+              'Start free Conversation',
+              style: GoogleFonts.poppins(
+                fontSize: 43,
+                height: 1.4,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
-        ),
+
+          SizedBox(height: 45),
+
+          Text(
+            'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
+          ),
+        ],
       ),
     );
   }
