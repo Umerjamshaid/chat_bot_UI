@@ -13,9 +13,7 @@ class OnboardScreen extends StatefulWidget {
 
 class _OnboardScreenState extends State<OnboardScreen> {
   static final PageController _pageController = PageController(initialPage: 0);
-  final List<Widget> _onBoardingPages = [
-    OnboardingCard(image: "assets/images/onboarding2.png"),
-  ];
+  final List<Widget> _onBoardingPages = [OnboardingCard()];
 
   @override
   Widget build(BuildContext context) {
