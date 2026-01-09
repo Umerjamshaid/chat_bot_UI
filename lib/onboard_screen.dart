@@ -1,81 +1,46 @@
 import 'package:bot/Wigidts/bottom_banner.dart';
+import 'package:bot/Wigidts/onboarding_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnboardScreen extends StatelessWidget {
+class OnboardScreen extends StatefulWidget {
   const OnboardScreen({super.key});
+
+  @override
+  State<OnboardScreen> createState() => _OnboardScreenState();
+}
+
+class _OnboardScreenState extends State<OnboardScreen> {
+  static final PageController _pageController = PageController(initialPage: 0);
+  final List<Widget> _onBoardingPages = [
+    OnboardingCard(image: "assets/images/onboarding2.png"),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Image.asset('assets/images/onboarding.png')),
-      body: SafeArea(
+      // For Appbar transparcies ====> https://stackoverflow.com/questions/53080186/make-appbar-transparent-and-show-background-image-which-is-set-to-whole-screen
+      extendBodyBehindAppBar: true,
+      // backgroundColor: const Color.fromARGB(255, 248, 246, 246),
+      appBar: AppBar(
+        title: Image.asset('assets/images/onboarding.png'),
+        // For Appbar transparcies ...
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 50.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Start free Conversation',
-                        style: GoogleFonts.poppins(
-                          fontSize: 43,
-                          height: 1.4,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF1A1A4B),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              child: PageView(
+                controller: _pageController,
+                children: _onBoardingPages,
               ),
             ),
-
-            SizedBox(height: 5),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-
-              child: Text(
-                'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
-                // textAlign: TextAlign.center,
-                style: GoogleFonts.onest(
-                  fontSize: 16,
-                  height: 1.2,
-                  color: Color(0xFF1F1E58),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 45),
-              child: Image.asset(
-                'assets/images/onboarding2.png',
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
-              ),
-            ),
-            // 👇 Just add this at the bottom!
-            AuthButtonsSection(
-              onGoogleSignIn: () {
-                // What happens when user taps Google button
-                print('Google Sign In clicked');
-                // Navigator.push(...) or your auth logic
-              },
-              onEmailSignUp: () {
-                // What happens when user taps Email button
-                print('Email Sign Up clicked');
-                // Navigate to email signup screen
-              },
-              onLogin: () {
-                // What happens when user taps Login button
-                print('Login clicked');
-                // Navigate to login screen
-              },
-            ),
+            SmoothPageIndicator(controller: _pageController, count: 3),
           ],
         ),
       ),
