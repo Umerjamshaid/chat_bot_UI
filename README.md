@@ -59,3 +59,58 @@ Text(
                     ),
                   ),
 ```
+
+
+
+
+---
+Bhai ye dekho, onboarding screen pe kaam kar raha tha aur ek error aa rahi hai jo samajh nahi aa rahi. Thori help chahiye.
+
+**Error:**
+```
+type 'Null' is not a subtype of type 'String' of 'function result'
+```
+
+Line 43 pe error aa rahi hai `onboarding_card.dart` mein jahan `Image.asset()` use kar raha hoon.
+
+**Ye mera code hai:**
+
+**onboard_screen.dart:**
+```dart
+final List<Widget> _onBoardingPages = [
+  OnboardingCard(image: "assets/images/onboarding2.png"),
+];
+```
+
+**onboarding_card.dart:**
+```dart
+class OnboardingCard extends StatelessWidget {
+  final String image;
+
+  const OnboardingCard({super.key, required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // ... baqi ka code
+      Image.asset(  // Line 43 - Yahan error aa rahi
+        image,
+        width: 100,
+        height: 100,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}
+```
+
+**Maine ye try kiya:**
+- Image file check ki, exist karti hai
+- pubspec.yaml mein assets properly declare hain
+- flutter pub get chalayi
+- Hot reload ki bajaye full restart kiya
+- Debug print add kiya image parameter check karne ke liye
+
+Error ka matlab hai ke `image` parameter ko null mil raha hai string ki jagah, lekin samajh nahi aa raha kyun kyunke main clearly path pass kar raha hoon widget create karte waqt.
+
+Kya aap bata sakte hain ke main kya miss kar raha hoon? 🙏

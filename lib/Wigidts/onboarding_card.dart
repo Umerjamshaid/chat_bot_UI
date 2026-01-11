@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingCard extends StatelessWidget {
-  // final String image;
+  final String image;
 
-  const OnboardingCard({super.key});
+  const OnboardingCard({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class OnboardingCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 45),
                   Image.asset(
-                    'assets/images/onboarding2.png',
+                    image,
                     width: 100,
                     height: 100,
                     fit: BoxFit.cover,
