@@ -114,3 +114,15 @@ class OnboardingCard extends StatelessWidget {
 Error ka matlab hai ke `image` parameter ko null mil raha hai string ki jagah, lekin samajh nahi aa raha kyun kyunke main clearly path pass kar raha hoon widget create karte waqt.
 
 Kya aap bata sakte hain ke main kya miss kar raha hoon? 🙏
+
+## Onboarding Card Fix
+
+I modified the `lib/Wigidts/onboarding_card.dart` file to put all elements in a single Column and fixed the image usage.
+
+### What I did:
+- Removed the unnecessary outer `Column` and `Expanded` widgets. Now, the `SingleChildScrollView` is directly inside the `Container`, with a single `Column` containing all the children (SizedBox, Texts, and Image).
+- Changed `Image.asset('assets/images/onboarding2.png', ...)` to `Image.asset(image, ...)` to use the `image` parameter passed to the widget.
+
+### What you were doing wrong:
+- The `image` parameter was defined in the constructor but not used; instead, a hardcoded path was used, which ignores the dynamic image input.
+- The widget tree had redundant nesting: `Container > Column > Expanded > SingleChildScrollView > Column`. This can be simplified to `Container > SingleChildScrollView > Column` since the `Container` already provides the bounded height for scrolling.
