@@ -60,9 +60,9 @@ class OnboardingCard extends StatelessWidget {
               ],
             ),
             MaterialButton(
-              minWidth: 70,
+              minWidth: 200,
               onPressed: () => onPressed(),
-              color: Colors.blue,
+              color: Color(0xFF5956FC),
               child: Text(buttonText),
             ),
           ],

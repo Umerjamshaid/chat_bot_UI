@@ -20,7 +20,13 @@ class _OnboardScreenState extends State<OnboardScreen> {
       description:
           'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
       buttonText: 'Next',
-      onPressed: () {},
+      onPressed: () {
+        _pageController.animateToPage(
+          1,
+          duration: Durations.long1,
+          curve: Curves.easeIn,
+        );
+      },
     ),
     OnboardingCard(
       image: 'assets/images/onboarding3.png',
@@ -55,7 +61,21 @@ class _OnboardScreenState extends State<OnboardScreen> {
                 children: _onBoardingPages,
               ),
             ),
-            SmoothPageIndicator(controller: _pageController, count: 2),
+            SmoothPageIndicator(
+              controller: _pageController,
+              count: _onBoardingPages.length,
+              effect: ExpandingDotsEffect(
+                activeDotColor: Color(0xFF1A1A4B),
+                dotColor: Color(0xFF9F9EB7),
+              ),
+              onDotClicked: (index) {
+                _pageController.animateToPage(
+                  index,
+                  duration: Durations.long1,
+                  curve: Curves.easeIn,
+                );
+              },
+            ),
           ],
         ),
       ),
