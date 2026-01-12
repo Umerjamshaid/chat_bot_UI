@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingCard extends StatelessWidget {
-  final String image;
+  final String image, title, description, buttonText;
+  final Function onPressed;
 
-  const OnboardingCard({super.key, required this.image});
+  const OnboardingCard({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.description,
+    required this.buttonText,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +22,17 @@ class OnboardingCard extends StatelessWidget {
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
             Column(
               children: [
                 Text(
-                  'Start free Conversation',
+                  title,
                   style: GoogleFonts.poppins(
-                    fontSize: 43,
+                    fontSize: 40,
                     height: 1.4,
                     fontWeight: FontWeight.w600,
                     color: const Color(0xFF1A1A4B),
@@ -30,7 +40,7 @@ class OnboardingCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
+                  description,
                   style: GoogleFonts.onest(
                     fontSize: 16,
                     height: 1.2,
@@ -50,9 +60,10 @@ class OnboardingCard extends StatelessWidget {
               ],
             ),
             MaterialButton(
-              onPressed: () {
-                Image.asset(image, width: 100, height: 100, fit: BoxFit.cover);
-              },
+              minWidth: 70,
+              onPressed: () => onPressed(),
+              color: Colors.blue,
+              child: Text(buttonText),
             ),
           ],
         ),

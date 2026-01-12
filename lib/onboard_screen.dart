@@ -14,7 +14,22 @@ class OnboardScreen extends StatefulWidget {
 class _OnboardScreenState extends State<OnboardScreen> {
   static final PageController _pageController = PageController(initialPage: 0);
   final List<Widget> _onBoardingPages = [
-    OnboardingCard(image: 'assets/images/onboarding2.png'),
+    OnboardingCard(
+      image: 'assets/images/onboarding2.png',
+      title: 'Start free Conversation',
+      description:
+          'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
+      buttonText: 'Next',
+      onPressed: () {},
+    ),
+    OnboardingCard(
+      image: 'assets/images/onboarding3.png',
+      title: 'leave your voice instantly',
+      description:
+          'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
+      buttonText: 'Next',
+      onPressed: () {},
+    ),
   ];
 
   @override
@@ -40,7 +55,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                 children: _onBoardingPages,
               ),
             ),
-            SmoothPageIndicator(controller: _pageController, count: 3),
+            SmoothPageIndicator(controller: _pageController, count: 2),
           ],
         ),
       ),
