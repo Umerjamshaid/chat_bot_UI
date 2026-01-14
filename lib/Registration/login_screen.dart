@@ -18,10 +18,11 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Text(
             'Create an account',
-            style: GoogleFonts.poppins(
-              fontSize: 40,
+            style: TextStyle(
+              fontFamily: "NeurialGrotesk",
+              fontSize: 24,
               height: 1.4,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
               color: const Color(0xFF1A1A4B),
             ),
           ),

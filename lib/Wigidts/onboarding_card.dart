@@ -31,10 +31,11 @@ class OnboardingCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
+                    fontFamily: "NeurialGrotesk",
                     fontSize: 40,
                     height: 1.4,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                     color: const Color(0xFF1A1A4B),
                   ),
                 ),
