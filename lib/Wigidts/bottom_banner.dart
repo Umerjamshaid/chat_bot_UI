@@ -21,10 +21,10 @@ class AuthButtonsSection extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 250),
       padding: EdgeInsets.only(
-        bottom: bottom + 20,
+        bottom: bottom + 16,
         left: 20,
         right: 20,
-        top: 12,
+        top: 8,
       ),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -46,7 +46,7 @@ class AuthButtonsSection extends StatelessWidget {
             onTap: onGoogleSignIn,
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
 
           // Email Sign Up Button (Secondary)
           _SecondaryButton(
@@ -55,7 +55,7 @@ class AuthButtonsSection extends StatelessWidget {
             onTap: onEmailSignUp,
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
 
           // Login Button (Tertiary/Outline)
           _OutlineButton(text: 'Login To Existing Account', onTap: onLogin),
@@ -87,7 +87,7 @@ class _PrimaryButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         onTap: onTap,
         child: Container(
-          height: 56,
+          height: 48,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +133,7 @@ class _SecondaryButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         onTap: onTap,
         child: Container(
-          height: 56,
+          height: 48,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -174,7 +174,7 @@ class _OutlineButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         onTap: onTap,
         child: Container(
-          height: 56,
+          height: 48,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(

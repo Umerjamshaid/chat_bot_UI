@@ -131,3 +131,4 @@ class OnboardingCard extends StatelessWidget {
 **Resolution:** The parameter was not being used in the widget; a hardcoded path was used instead. Fixed by using `this.image` in `Image.asset()`.
 
 For more fixes and changes, refer to `FIXES.md`.
+

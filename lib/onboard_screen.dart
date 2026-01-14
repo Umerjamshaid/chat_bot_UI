@@ -76,11 +76,14 @@
 //             ),
 //           ],
 //         ),
+// 2. sticky auth banner (keyboard-aware)
+
 //       ),
 //     );
 //   }
 // }
 
+import 'package:bot/Registration/login_screen.dart';
 import 'package:bot/Wigidts/bottom_banner.dart';
 import 'package:bot/Wigidts/onboarding_card.dart';
 import 'package:flutter/material.dart';
@@ -164,9 +167,18 @@ class _OnboardScreenState extends State<OnboardScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: AuthButtonsSection(
-              onGoogleSignIn: () => print('google'),
-              onEmailSignUp: () => print('email'),
-              onLogin: () => print('login'),
+              onGoogleSignIn: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginScreen()),
+              ),
+              onEmailSignUp: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginScreen()),
+              ),
+              onLogin: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginScreen()),
+              ),
             ),
           ),
         ],

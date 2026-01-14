@@ -24,3 +24,16 @@ I modified the `lib/Wigidts/onboarding_card.dart` file to ensure the text and co
 ### Why this works:
 - Centering the content ensures it fits comfortably within the fixed height (80% of screen height) without unnecessary spacing that could push elements out of view.
 - The `SingleChildScrollView` remains to handle any edge cases where content might exceed the height on smaller screens, but in practice, the centered layout prevents the need for scrolling.
+
+## Bottom Banner Size Fix
+
+I modified the `lib/Wigidts/bottom_banner.dart` file to reduce the size of the authentication buttons section to prevent it from overlapping with the onboarding card's image.
+
+### What I did:
+- Reduced the button heights from 56 to 48 pixels for all three buttons (_PrimaryButton, _SecondaryButton, _OutlineButton).
+- Decreased the spacing between buttons from 12 to 8 pixels.
+- Reduced the top padding from 12 to 8 pixels and bottom padding from 20 to 16 pixels in the AnimatedContainer.
+
+### Why this works:
+- The smaller button sizes and reduced padding make the entire banner more compact, ensuring it doesn't bump into or cover the image at the bottom of the onboarding cards.
+- This maintains the visual hierarchy while improving the layout on screens where the onboarding content takes up most of the available space.
