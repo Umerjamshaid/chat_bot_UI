@@ -9,25 +9,37 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  // Form key for validation
+  final _formKey = GlobalKey<FormState>();
+
+  // Controllers for each field
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(titleSpacing: 34),
 
-      body: Column(
-        children: [
-          Text(
-            'Create an account',
-            style: TextStyle(
-              fontFamily: "NeurialGrotesk",
-              fontSize: 24,
-              height: 1.4,
-              fontWeight: FontWeight.w700,
-              color: const Color(0xFF1A1A4B),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(
+              'Create an account',
+              style: TextStyle(
+                fontFamily: "NeurialGrotesk",
+                fontSize: 24,
+                height: 1.4,
+                fontWeight: FontWeight.w700,
+                color: const Color(0xFF1A1A4B),
+              ),
             ),
-          ),
-          TextFormField(),
-        ],
+            TextFormField(),
+          ],
+        ),
       ),
     );
   }
