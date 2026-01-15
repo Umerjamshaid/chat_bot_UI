@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
               color: const Color(0xFF1A1A4B),
             ),
           ),
+          TextFormField(),
         ],
       ),
     );
