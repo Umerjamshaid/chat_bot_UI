@@ -26,7 +26,7 @@ class CustomNameField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: lableText,
         hintText: hintText,
-        prefixIcon: Icon(Ionicons.mail_outline),
+        prefixIcon: Icon(Ionicons.person_outline),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
 

@@ -1,3 +1,5 @@
+import 'package:bot/Wigidts/CustomEmailField.dart';
+import 'package:bot/Wigidts/CustomNameField.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,20 +27,26 @@ class _LoginScreenState extends State<LoginScreen> {
 
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Text(
-              'Create an account',
-              style: TextStyle(
-                fontFamily: "NeurialGrotesk",
-                fontSize: 24,
-                height: 1.4,
-                fontWeight: FontWeight.w700,
-                color: const Color(0xFF1A1A4B),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Text(
+                'Create an account',
+                style: TextStyle(
+                  fontFamily: "NeurialGrotesk",
+                  fontSize: 24,
+                  height: 1.4,
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xFF1A1A4B),
+                ),
               ),
-            ),
-            TextFormField(),
-          ],
+              CustomNameField(controller: _nameController),
+
+              SizedBox(height: 16),
+              CustomEmailField(controller: _emailController),
+            ],
+          ),
         ),
       ),
     );
