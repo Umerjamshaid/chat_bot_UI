@@ -83,6 +83,7 @@
 //   }
 // }
 
+import 'package:bot/Registration/Signup_screen.dart';
 import 'package:bot/Registration/login_screen.dart';
 import 'package:bot/Wigidts/bottom_banner.dart';
 import 'package:bot/Wigidts/onboarding_card.dart';
@@ -167,13 +168,9 @@ class _OnboardScreenState extends State<OnboardScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: AuthButtonsSection(
-              onGoogleSignIn: () => Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (_) => LoginScreen()),
-              ),
               onEmailSignUp: () => Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => LoginScreen()),
+                MaterialPageRoute(builder: (_) => SignupScreen()),
               ),
               onLogin: () => Navigator.pushReplacement(
                 context,

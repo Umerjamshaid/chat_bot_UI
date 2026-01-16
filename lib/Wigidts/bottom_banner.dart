@@ -3,12 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 /* ----------  AUTH BUTTONS WIDGET (Like Rak-GPT)  ---------- */
 class AuthButtonsSection extends StatelessWidget {
-  final VoidCallback onGoogleSignIn;
   final VoidCallback onEmailSignUp;
   final VoidCallback onLogin;
 
   const AuthButtonsSection({
-    required this.onGoogleSignIn,
     required this.onEmailSignUp,
     required this.onLogin,
     super.key,
@@ -39,15 +37,6 @@ class AuthButtonsSection extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Google Sign In Button (Primary)
-          _PrimaryButton(
-            text: 'Continue With Google',
-            icon: Icons.g_mobiledata_rounded, // Replace with Google icon
-            onTap: onGoogleSignIn,
-          ),
-
-          const SizedBox(height: 8),
-
           // Email Sign Up Button (Secondary)
           _SecondaryButton(
             text: 'Sign Up With Email',
@@ -275,7 +264,9 @@ class AuthScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(36),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFF6366F1).withOpacity(0.4),
+                            color: const Color(
+                              0xFF6366F1,
+                            ).withValues(alpha: 0.4),
                             blurRadius: 20,
                             offset: const Offset(0, 8),
                           ),
@@ -294,9 +285,6 @@ class AuthScreen extends StatelessWidget {
 
             // Auth buttons at bottom
             AuthButtonsSection(
-              onGoogleSignIn: () {
-                print('Google Sign In tapped');
-              },
               onEmailSignUp: () {
                 print('Email Sign Up tapped');
               },

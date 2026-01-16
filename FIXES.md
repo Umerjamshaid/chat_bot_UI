@@ -69,3 +69,17 @@ I modified the `lib/Validators/validators.dart` and `lib/Wigidts/password_streng
 - The strength check now requires all criteria (uppercase, lowercase, digits, special characters) for a strong password, providing better security guidance.
 - Visual feedback is clearer with different icons and colors (red for weak, green for strong), helping users understand password requirements instantly.
 - Real-time updates as the user types ensure immediate feedback without needing form validation.
+
+## Google Sign-In Button Removal
+
+I modified the `lib/Wigidts/bottom_banner.dart` and `lib/onboard_screen.dart` files to remove the Google sign-in functionality.
+
+### What I did:
+- Removed the `onGoogleSignIn` parameter from the `AuthButtonsSection` class constructor.
+- Removed the `_PrimaryButton` (Google sign-in button) from the widget tree in `bottom_banner.dart`.
+- Updated the usage in `onboard_screen.dart` to exclude the `onGoogleSignIn` callback.
+
+### Why this works:
+- Simplifies the authentication options by focusing on email-based sign-up and login.
+- Reduces the number of buttons in the banner, making it less cluttered.
+- Maintains the core functionality while removing unnecessary authentication methods for this implementation.
