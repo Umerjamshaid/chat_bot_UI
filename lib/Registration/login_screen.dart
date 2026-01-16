@@ -27,8 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _checkPasswordStrength() {
     setState(() {
-      _isPasswordStrong =
-          Validators.validatePassword(_passwordController.text) == null;
+      _isPasswordStrong = Validators.isStrongPassword(_passwordController.text);
     });
   }
 

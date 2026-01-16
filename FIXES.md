@@ -55,3 +55,17 @@ I modified the `lib/Registration/login_screen.dart` file to properly link the va
 - The password strength indicator updates in real-time as the user types, providing immediate feedback.
 - The remember me checkbox allows users to save their login information for convenience.
 - All existing functionality is preserved while adding the required features without removing or changing other elements.
+
+## Password Strength Enhancement
+
+I modified the `lib/Validators/validators.dart` and `lib/Wigidts/password_strength_indicator.dart` files to provide more accurate password strength checking and visual feedback.
+
+### What I did:
+- Added a new static method `isStrongPassword(String password)` in the `Validators` class that checks for minimum length (8 characters), uppercase letters, lowercase letters, digits, and special characters.
+- Updated the `login_screen.dart` to use `Validators.isStrongPassword` instead of relying on the validation function.
+- Modified the `PasswordStrengthIndicator` widget to display "Weak password" with a red error icon when the password is weak, and "Strong password" with a green check icon when strong.
+
+### Why this works:
+- The strength check now requires all criteria (uppercase, lowercase, digits, special characters) for a strong password, providing better security guidance.
+- Visual feedback is clearer with different icons and colors (red for weak, green for strong), helping users understand password requirements instantly.
+- Real-time updates as the user types ensure immediate feedback without needing form validation.

@@ -36,6 +36,20 @@ class Validators {
     return null;
   }
 
+  // Calculate password strength
+  static bool isStrongPassword(String password) {
+    if (password.length < 8) return false;
+
+    bool hasUppercase = password.contains(RegExp(r'[A-Z]'));
+    bool hasLowercase = password.contains(RegExp(r'[a-z]'));
+    bool hasDigits = password.contains(RegExp(r'[0-9]'));
+    bool hasSpecialCharacters = password.contains(
+      RegExp(r'[!@#$%^&*(),.?":{}|<>]'),
+    );
+
+    return hasUppercase && hasLowercase && hasDigits && hasSpecialCharacters;
+  }
+
   // Phone~0Number validator
   static String? validatePhone(String? value) {
     if (value == null || value.isEmpty) {

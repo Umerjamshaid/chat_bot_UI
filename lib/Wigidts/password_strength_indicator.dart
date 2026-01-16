@@ -20,16 +20,20 @@ class PasswordStrengthIndicator extends StatelessWidget {
           Row(
             children: [
               Icon(
-                Icons.check_circle_outline,
+                isStrong ? Icons.check_circle : Icons.error_outline,
                 size: 18,
-                color: isStrong ? const Color(0xFF10B981) : Colors.grey,
+                color: isStrong
+                    ? const Color(0xFF10B981)
+                    : const Color(0xFFEF4444),
               ),
               const SizedBox(width: 6),
               Text(
-                'Strong password',
+                isStrong ? 'Strong password' : 'Weak password',
                 style: TextStyle(
                   fontSize: 13,
-                  color: isStrong ? const Color(0xFF10B981) : Colors.grey,
+                  color: isStrong
+                      ? const Color(0xFF10B981)
+                      : const Color(0xFFEF4444),
                   fontWeight: FontWeight.w500,
                 ),
               ),
