@@ -37,3 +37,21 @@ I modified the `lib/Wigidts/bottom_banner.dart` file to reduce the size of the a
 ### Why this works:
 - The smaller button sizes and reduced padding make the entire banner more compact, ensuring it doesn't bump into or cover the image at the bottom of the onboarding cards.
 - This maintains the visual hierarchy while improving the layout on screens where the onboarding content takes up most of the available space.
+
+## Login Screen Validators and Widgets Fix
+
+I modified the `lib/Registration/login_screen.dart` file to properly link the validators, add the password strength indicator, and include the remember me checkbox.
+
+### What I did:
+- Added imports for `login_checkbox.dart` and `password_strength_indicator.dart`.
+- Added `initState` to attach a listener to the password controller for real-time strength checking.
+- Fixed the `_checkPasswordStrength` method to correctly check if the password passes validation (returns null from `Validators.validatePassword`).
+- Added `validator: Validators.validateEmail` to the `CustomEmailField`.
+- Added `PasswordStrengthIndicator` widget after the password field to show if the password is strong.
+- Added `RememberLoginCheckbox` widget after the password strength indicator for the remember me option.
+
+### Why this works:
+- The validators are now properly linked to the form fields, enabling validation on form submission.
+- The password strength indicator updates in real-time as the user types, providing immediate feedback.
+- The remember me checkbox allows users to save their login information for convenience.
+- All existing functionality is preserved while adding the required features without removing or changing other elements.
