@@ -169,15 +169,15 @@ class _OnboardScreenState extends State<OnboardScreen> {
             child: AuthButtonsSection(
               onGoogleSignIn: () => Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const LoginScreen()),
+                MaterialPageRoute(builder: (_) => LoginScreen()),
               ),
               onEmailSignUp: () => Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const LoginScreen()),
+                MaterialPageRoute(builder: (_) => LoginScreen()),
               ),
               onLogin: () => Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const LoginScreen()),
+                MaterialPageRoute(builder: (_) => LoginScreen()),
               ),
             ),
           ),
