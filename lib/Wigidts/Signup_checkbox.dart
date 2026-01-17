@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class RememberLoginCheckbox extends StatelessWidget {
+class SignupCheckbox extends StatelessWidget {
   final bool value;
   final ValueChanged<bool?> onChanged;
 
-  const RememberLoginCheckbox({
+  const SignupCheckbox({
     super.key,
     required this.value,
     required this.onChanged,

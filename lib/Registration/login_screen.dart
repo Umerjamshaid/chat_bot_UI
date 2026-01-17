@@ -1,7 +1,8 @@
+import 'package:bot/Registration/Signup_screen.dart';
 import 'package:bot/Validators/validators.dart';
 import 'package:bot/Wigidts/CustomEmailField.dart';
 import 'package:bot/Wigidts/CustomPasswordField.dart';
-import 'package:bot/Wigidts/login_checkbox.dart';
+import 'package:bot/Wigidts/Signup_checkbox.dart';
 import 'package:bot/Wigidts/password_strength_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 const SizedBox(height: 20),
                 const Text(
-                  'Create an account',
+                  'Welcome back',
                   style: TextStyle(
                     fontFamily: "NeurialGrotesk",
                     fontSize: 28,
@@ -60,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Sign for a free account. Get easier than search engines results.',
+                  'Login to your account. Get easier than search engines results.',
                   style: TextStyle(
                     fontSize: 15,
                     color: Color(0xFF6B7280),
@@ -76,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomPasswordField(controller: _passwordController),
                 PasswordStrengthIndicator(isStrong: _isPasswordStrong),
                 const SizedBox(height: 20),
-                RememberLoginCheckbox(
+                SignupCheckbox(
                   value: _rememberMe,
                   onChanged: (value) =>
                       setState(() => _rememberMe = value ?? false),
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     child: const Text(
-                      'Create Account',
+                      'Login',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -112,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Already have an account? ',
+                        'Don\'t have an account? ',
                         style: TextStyle(
                           fontSize: 14,
                           color: Color(0xFF6B7280),
@@ -120,7 +121,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => SignupScreen()),
+                          );
                         },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
@@ -128,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                         child: const Text(
-                          'Login',
+                          'Sign up',
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,

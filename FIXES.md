@@ -83,3 +83,36 @@ I modified the `lib/Wigidts/bottom_banner.dart` and `lib/onboard_screen.dart` fi
 - Simplifies the authentication options by focusing on email-based sign-up and login.
 - Reduces the number of buttons in the banner, making it less cluttered.
 - Maintains the core functionality while removing unnecessary authentication methods for this implementation.
+
+## Login Screen Content Correction
+
+I modified the `lib/Registration/login_screen.dart` file to correct the mismatched content that was displaying signup-related text in a login screen.
+
+### What I did:
+- Updated the import to use `Signup_checkbox.dart` instead of `login_checkbox.dart` to match the widget being used.
+- Changed the title from "Create an account" to "Welcome back" to reflect login functionality.
+- Updated the subtitle from signup text to "Login to your account. Get easier than search engines results."
+- Changed the button text from "Create Account" to "Login".
+- Corrected the bottom link text from "Already have an account? Login" to "Don't have an account? Sign up" for proper login screen navigation.
+
+### Why this works:
+- The screen now properly represents a login interface with appropriate text and navigation.
+- Users will have clear expectations about the screen's purpose.
+- The navigation link now correctly points to the signup screen for users without accounts.
+- Maintains consistency with standard authentication flow patterns.
+
+## Authentication Screen Navigation Fix
+
+I modified the `lib/Registration/login_screen.dart` and `lib/Registration/Signup_screen.dart` files to correct the navigation between login and signup screens.
+
+### What I did:
+- Fixed the `Signup_screen.dart` content to properly display signup-related text: title "Create an account", subtitle "Sign up for a free account...", button "Create Account", and bottom link "Already have an account? Login".
+- Changed the navigation in both screens from `Navigator.pop()` (which incorrectly tried to pass a route and would go back instead of forward) to `Navigator.push()` to properly navigate to the other screen.
+- In `Signup_screen.dart`, the "Login" link now pushes the `LoginScreen`.
+- In `login_screen.dart`, the "Sign up" link now pushes the `SignupScreen`.
+
+### Why this works:
+- Users can now properly navigate between login and signup screens using the bottom links.
+- The navigation follows the correct flow: push to go forward, pop to go back.
+- Eliminates the issue where clicking the navigation link would not take users to the intended screen.
+- Both screens now have consistent and correct content matching their purpose.

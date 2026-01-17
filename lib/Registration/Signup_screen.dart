@@ -1,3 +1,4 @@
+import 'package:bot/Registration/login_screen.dart';
 import 'package:bot/Validators/validators.dart';
 import 'package:bot/Wigidts/CustomEmailField.dart';
 import 'package:bot/Wigidts/CustomPasswordField.dart';
@@ -50,7 +51,7 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
                 const SizedBox(height: 20),
                 const Text(
-                  'Welcome back to login!',
+                  'Create an account',
                   style: TextStyle(
                     fontFamily: "NeurialGrotesk",
                     fontSize: 28,
@@ -60,7 +61,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Login to your account. Get easier than search engines results. ',
+                  'Sign up for a free account. Get easier than search engines results.',
                   style: TextStyle(
                     fontSize: 15,
                     color: Color(0xFF6B7280),
@@ -98,7 +99,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     child: const Text(
-                      'Login',
+                      'Create Account',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -112,7 +113,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Creat An Account? ',
+                        'Already have an account? ',
                         style: TextStyle(
                           fontSize: 14,
                           color: Color(0xFF6B7280),
@@ -120,7 +121,10 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => LoginScreen()),
+                          );
                         },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
