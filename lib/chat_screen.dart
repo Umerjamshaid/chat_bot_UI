@@ -30,7 +30,18 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ],
         ),
-        actions: [TextButton(onPressed: () {}, child: Text('Login'))],
+        actions: [
+          TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              backgroundColor: Color(0xFF5956FC),
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+            ),
+            child: Text('Login', style: TextStyle(fontSize: 15)),
+          ),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 2, vertical: 8)),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -75,6 +86,8 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
       ),
+
+      body: Column(children: [Image.asset('assets/images/bot1.png')]),
     );
   }
 }

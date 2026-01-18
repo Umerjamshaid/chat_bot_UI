@@ -116,3 +116,16 @@ I modified the `lib/Registration/login_screen.dart` and `lib/Registration/Signup
 - The navigation follows the correct flow: push to go forward, pop to go back.
 - Eliminates the issue where clicking the navigation link would not take users to the intended screen.
 - Both screens now have consistent and correct content matching their purpose.
+
+## Chat Screen Login Button Adjustment
+
+I modified the `lib/chat_screen.dart` file to make the login button in the app bar smaller and slightly stretched.
+
+### What I did:
+- Reduced the font size of the "Login" text from 10 to 9.
+- Added padding to the TextButton with `EdgeInsets.symmetric(horizontal: 12, vertical: 6)` to make it slightly wider (stretched) while keeping the height compact.
+
+### Why this works:
+- The smaller font size makes the button appear less prominent while maintaining readability.
+- The added horizontal padding stretches the button slightly for better visual balance in the app bar.
+- The vertical padding ensures the button remains compact without being too tall.
