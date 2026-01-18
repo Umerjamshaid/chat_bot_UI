@@ -30,6 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ],
         ),
+        actions: [TextButton(onPressed: () {}, child: Text('Login'))],
       ),
       drawer: Drawer(
         child: ListView(
