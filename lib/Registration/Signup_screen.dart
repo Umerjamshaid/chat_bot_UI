@@ -4,6 +4,7 @@ import 'package:bot/Wigidts/CustomEmailField.dart';
 import 'package:bot/Wigidts/CustomPasswordField.dart';
 import 'package:bot/Wigidts/login_checkbox.dart';
 import 'package:bot/Wigidts/password_strength_indicator.dart';
+import 'package:bot/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -89,6 +90,10 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {}
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => ChatScreen()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF6366F1),

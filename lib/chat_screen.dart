@@ -12,7 +12,24 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(children: [Image.asset('assets/images/bot1.png')]),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(0.8),
+              child: Text(
+                'rak-GPT',
+                style: TextStyle(
+                  fontFamily: "NeurialGrotesk",
+                  fontSize: 16,
+                  height: 1.4,
+                  fontWeight: FontWeight.w800,
+                  color: const Color(0xFF1A1A4B),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
