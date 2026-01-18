@@ -31,6 +31,49 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero, // Remove default ListView padding
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text('Sophia'),
+              accountEmail: Text('@sophia.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  'https://oyster.ignimgs.com/mediawiki/apis.ign.com/valorant/3/3d/VALORANT_Omen.png?width=1600',
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blueAccent, // Header background color
+              ),
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.home,
+                color: Colors.blueGrey,
+              ), // Icon and color
+              title: const Text(
+                'Home',
+                style: TextStyle(color: Colors.blueGrey),
+              ), // Text and style
+              onTap: () {
+                // Update app state and close the drawer
+                Navigator.pop(context);
+                // Add navigation logic
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                // Handle tap
+                Navigator.pop(context);
+              },
+            ),
+            const Divider(), // Add a horizontal divider
+          ],
+        ),
+      ),
     );
   }
 }
