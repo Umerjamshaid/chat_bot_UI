@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -8,6 +9,8 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  bool isTyping = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -176,7 +179,50 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ],
           ),
-          TextFormField(style: TextStyle(fontSize: 23)),
+          Spacer(),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                // Left button - Purple mic
+                FloatingActionButton(
+                  mini: true, // Makes it smaller
+                  onPressed: () {},
+                  backgroundColor: Color(0xFF5956FC),
+                  child: Icon(Icons.mic, color: Colors.white, size: 20),
+                ),
+
+                SizedBox(width: 12),
+                // Text field in the middle :)
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Ask what\'s on your mind...',
+                      filled: true,
+                      fillColor: Colors.grey.shade100,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: BorderSide.none, // No border line
+                      ),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 12,
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(width: 12),
+                // Right button - Green send
+                FloatingActionButton(
+                  mini: true, // Makes it smaller
+                  onPressed: () {},
+                  backgroundColor: Color(0xFF4CAF50),
+                  child: Icon(Icons.send, color: Colors.white, size: 20),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
