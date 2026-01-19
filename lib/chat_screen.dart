@@ -125,26 +125,58 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           SizedBox(height: 15),
+
           //Chips = little Tags on the screen
+          // Wrap(
+          //   spacing: 5,
+          //   runSpacing: 5,
+          //   children: [
+          //     Chip(
+          //       label: Text('HTML'),
+          //       backgroundColor: Color(0xFFF5F5F5),
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(20),
+          //       ),
+          //       padding: EdgeInsets.symmetric(horizontal: 2.0, vertical: 5),
+          //     ),
+          //     Chip(
+          //       label: Text('SS'),
+          //       labelStyle: TextStyle(fontSize: 8),
+          //       avatar: CircleAvatar(radius: 10.0, child: Text('C')),
+          //       backgroundColor: Color.fromARGB(0, 23, 42, 214),
+          //       padding: EdgeInsets.symmetric(horizontal: 2, vertical: 0.12),
+          //     ),
+          //   ],
+          // ),
           Wrap(
-            spacing: 5,
-            runSpacing: 5,
-            children: [
+            spacing: 8.0,
+            runSpacing: 4.0,
+            children: <Widget>[
               Chip(
-                label: Text('HTML'),
-                backgroundColor: Color(0xFFF5F5F5),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                label: Text('using HTML'),
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
+                labelStyle: TextStyle(fontSize: 10.0),
+                backgroundColor: Colors.blue.shade100,
               ),
               Chip(
-                label: Text('CSS'),
-                backgroundColor: Color(0xFFF5F5F5),
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                label: Text('using CSS'),
+                // avatar: CircleAvatar(
+                //   radius: 12.0,
+                //   child: Icon(Icons.star, size: 16),
+                // ),
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
+                labelStyle: TextStyle(fontSize: 10.0),
+                backgroundColor: Colors.green.shade100,
+              ),
+              Chip(
+                label: Text('using JS'),
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 4.0),
+                labelStyle: TextStyle(fontSize: 10.0),
+                backgroundColor: Colors.orange.shade100,
               ),
             ],
           ),
+          TextFormField(style: TextStyle(fontSize: 23)),
         ],
       ),
     );
