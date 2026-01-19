@@ -87,7 +87,66 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       ),
 
-      body: Column(children: [Image.asset('assets/images/bot1.png')]),
+      body: Column(
+        children: [
+          Image.asset('assets/images/bot1.png', width: 200, height: 100),
+
+          SizedBox(height: 20),
+
+          Text(
+            'Hello, Boss!',
+            style: TextStyle(
+              fontFamily: "NeurialGrotesk",
+              fontSize: 24,
+              fontWeight: FontWeight.w800,
+              color: const Color(0xFF1A1A4B),
+            ),
+          ),
+
+          SizedBox(height: 8),
+
+          Text(
+            'Am Ready For Help You',
+            style: TextStyle(
+              fontFamily: "NeurialGrotesk",
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: const Color(0xFF1A1A4B),
+            ),
+          ),
+          Text(
+            'Ask me anything what\'s on your mind. Am here to assist you!',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: "NeurialGrotesk",
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey,
+            ),
+          ),
+          SizedBox(height: 15),
+          //Chips = little Tags on the screen
+          Wrap(
+            spacing: 5,
+            runSpacing: 5,
+            children: [
+              Chip(
+                label: Text('HTML'),
+                backgroundColor: Color(0xFFF5F5F5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              ),
+              Chip(
+                label: Text('CSS'),
+                backgroundColor: Color(0xFFF5F5F5),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
