@@ -46,7 +46,171 @@ class _ChatScreenState extends State<ChatScreen> {
           Padding(padding: EdgeInsets.symmetric(horizontal: 2, vertical: 8)),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: Column(
+          children: [
+            // Top padding for status bar
+            SizedBox(height: 50),
+
+            // Search bar
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search chat history',
+                  hintStyle: TextStyle(color: Colors.grey.shade600),
+                  prefixIcon: Icon(Icons.search, color: Colors.grey.shade600),
+                  filled: true,
+                  fillColor: Colors.grey.shade100,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.blue.shade200,
+                      width: 1,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.blue.shade200,
+                      width: 1,
+                    ),
+                  ),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+            ),
+
+            // Menu items
+            ListTile(
+              leading: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade50,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  Icons.chat_bubble_outline,
+                  color: Colors.blue.shade700,
+                  size: 20,
+                ),
+              ),
+              title: Text(
+                'Rak-GPT',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+              ),
+              onTap: () {},
+            ),
+
+            ListTile(
+              leading: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(Icons.tune, color: Colors.grey.shade700, size: 20),
+              ),
+              title: Text(
+                'Customize Feed',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+              ),
+              trailing: Icon(Icons.chevron_right, color: Colors.grey),
+              onTap: () {},
+            ),
+
+            ListTile(
+              leading: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  Icons.public,
+                  color: Colors.grey.shade700,
+                  size: 20,
+                ),
+              ),
+              title: Text(
+                'Community',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+              ),
+              onTap: () {},
+            ),
+
+            Divider(height: 30),
+
+            // Recent Chats Header
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Recent Chats',
+                  style: TextStyle(
+                    color: Colors.grey.shade600,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+
+            // Chat history list
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  _buildChatTile('Web Page Design - CSS/HTML/...'),
+                  _buildChatTile('AI Impact On UI/UX Design'),
+                  _buildChatTile('Web Page Design - CSS/HTML/...'),
+                  _buildChatTile('AI Impact On UI/UX Design'),
+                  Divider(height: 30),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Text(
+                      'Last Month',
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  _buildChatTile('Web Page Design - CSS/HTML/...'),
+                  _buildChatTile('AI Impact On UI/UX Design'),
+                ],
+              ),
+            ),
+
+            // Bottom profile section
+            Divider(height: 1),
+            ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.green.shade100,
+                child: Text(
+                  'W',
+                  style: TextStyle(
+                    color: Colors.green.shade700,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              title: Text(
+                'Wow Rakibul',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+              ),
+              trailing: Icon(Icons.more_horiz, color: Colors.grey),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       //Drawer end
       body: Column(
         children: [
@@ -175,7 +339,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 FloatingActionButton(
                   mini: true, // Makes it smaller
                   onPressed: () {},
-                  backgroundColor: Color(0xFF5956FC),
+                  backgroundColor: Color(0xFF4CAF50), // GREEN not purple!
                   child: Icon(Icons.send, color: Colors.white, size: 20),
                 ),
               ],
@@ -183,6 +347,19 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildChatTile(String title) {
+    return ListTile(
+      contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      title: Text(
+        title,
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      onTap: () {},
     );
   }
 }

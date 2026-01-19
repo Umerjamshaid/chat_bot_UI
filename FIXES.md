@@ -129,3 +129,41 @@ I modified the `lib/chat_screen.dart` file to make the login button in the app b
 - The smaller font size makes the button appear less prominent while maintaining readability.
 - The added horizontal padding stretches the button slightly for better visual balance in the app bar.
 - The vertical padding ensures the button remains compact without being too tall.
+
+## Chat Screen Drawer Enhancement
+
+I modified the `lib/chat_screen.dart` file to enhance the drawer with background color, search icon, and chat history list.
+
+### What I did:
+- Added `backgroundColor: Color(0xFFA0B0BF).withOpacity(0.25)` to the Drawer for a subtle background tint.
+- Added a search icon (`prefixIcon: Icon(Icons.search, color: Colors.grey)`) to the TextField in the drawer.
+- Replaced the simple Container with a Column containing the search field and an Expanded ListView with chat history items, similar to ChatGPT's sidebar.
+- Added 5 sample chat ListTiles with titles, subtitles (timestamps), and chat bubble icons.
+
+### Why this works:
+- The background color gives the drawer a more polished look without being too prominent.
+- The search icon clearly indicates the search functionality.
+- The chat list provides a familiar interface for users to browse and select previous conversations.
+- The layout uses Expanded to fill the remaining space, ensuring the list scrolls if there are many chats.
+
+## Chat Screen Drawer Complete Redesign
+
+I completely redesigned the `lib/chat_screen.dart` drawer to match a professional ChatGPT-style interface.
+
+### What I did:
+- Replaced the simple drawer with a comprehensive layout including:
+  - Top padding for status bar accommodation
+  - Professional search bar with border and search icon
+  - Menu items (Rak-GPT, Customize Feed, Community) with colored icon containers
+  - Recent Chats section header
+  - Scrollable chat history list with "Recent Chats" and "Last Month" sections
+  - Bottom profile section with avatar and user info
+- Added the `_buildChatTile` helper method to create consistent chat list tiles
+- Changed the send button color from purple to green for better UX
+
+### Why this works:
+- The drawer now provides a complete navigation experience similar to modern chat applications.
+- Organized sections make it easy for users to find recent conversations and access settings.
+- The search functionality is prominently placed for quick access.
+- Professional styling with proper spacing, colors, and icons enhances the overall app quality.
+- The green send button follows common UI patterns for send actions.
