@@ -217,7 +217,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 FloatingActionButton(
                   mini: true, // Makes it smaller
                   onPressed: () {},
-                  backgroundColor: Color(0xFF4CAF50),
+                  backgroundColor: Color(0xFF5956FC),
                   child: Icon(Icons.send, color: Colors.white, size: 20),
                 ),
               ],
