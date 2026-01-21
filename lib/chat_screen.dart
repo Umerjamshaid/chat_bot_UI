@@ -274,30 +274,52 @@ class _ChatScreenState extends State<ChatScreen> {
           //   ],
           // ),
           Wrap(
-            spacing: 8.0,
-            runSpacing: 4.0,
-            children: <Widget>[
-              Chip(
-                label: Text('using HTML'),
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
-                labelStyle: TextStyle(fontSize: 10.0),
-                backgroundColor: Colors.blue.shade100,
+            spacing: 8.0, // Space between chips
+            runSpacing: 8.0, // Space between rows
+            children: [
+              OutlinedButton(
+                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Colors.blue.shade300, width: 1.5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                ),
+                child: Text(
+                  'using HTML',
+                  style: TextStyle(fontSize: 12, color: Colors.blue.shade700),
+                ),
               ),
-              Chip(
-                label: Text('using CSS'),
-                // avatar: CircleAvatar(
-                //   radius: 12.0,
-                //   child: Icon(Icons.star, size: 16),
-                // ),
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
-                labelStyle: TextStyle(fontSize: 10.0),
-                backgroundColor: Colors.green.shade100,
+
+              OutlinedButton(
+                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Colors.green.shade300, width: 1.5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                ),
+                child: Text(
+                  'using CSS',
+                  style: TextStyle(fontSize: 12, color: Colors.green.shade700),
+                ),
               ),
-              Chip(
-                label: Text('using JS'),
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 4.0),
-                labelStyle: TextStyle(fontSize: 10.0),
-                backgroundColor: Colors.orange.shade100,
+
+              OutlinedButton(
+                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Colors.orange.shade300, width: 1.5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                ),
+                child: Text(
+                  'using JS',
+                  style: TextStyle(fontSize: 12, color: Colors.orange.shade700),
+                ),
               ),
             ],
           ),
