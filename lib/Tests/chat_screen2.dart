@@ -1,19 +1,52 @@
 import 'package:bot/Registration/login_screen.dart';
+import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key});
+class ChatScreen2 extends StatefulWidget {
+  final String title;
+  const ChatScreen2({super.key, required this.title});
 
   @override
-  State<ChatScreen> createState() => _ChatScreenState();
+  State<ChatScreen2> createState() => _ChatScreen2State();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatScreen2State extends State<ChatScreen2> {
+  Duration duration = new Duration();
+  Duration position = new Duration();
+  bool isPlaying = false;
+  bool isLoading = false;
+  bool isPause = false;
   bool isTyping = false;
+
+  void _changeSeek(double value) {
+    setState(() {
+      position = Duration(seconds: value.toInt());
+    });
+  }
+
+  void _playAudio() {
+    setState(() {
+      isPlaying = !isPlaying;
+      isPause = !isPause;
+    });
+  }
+
+  Widget _image() {
+    return Container(
+      width: 200,
+      height: 200,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Icon(Icons.image, size: 100, color: Colors.white),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final now = new DateTime.now();
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -218,160 +251,153 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       ),
       //Drawer end
-      body: Column(
+      body: Stack(
         children: [
-          Image.asset('assets/images/bot1.png', width: 200, height: 100),
-
-          SizedBox(height: 20),
-
-          Text(
-            'Hello, Boss!',
-            style: TextStyle(
-              fontFamily: "NeurialGrotesk",
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
-              color: const Color(0xFF1A1A4B),
-            ),
-          ),
-
-          SizedBox(height: 8),
-
-          Text(
-            'Am Ready For Help You',
-            style: TextStyle(
-              fontFamily: "NeurialGrotesk",
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: const Color(0xFF1A1A4B),
-            ),
-          ),
-          Text(
-            'Ask me anything what\'s on your mind. Am here to assist you!',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: "NeurialGrotesk",
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(height: 15),
-
-          //Chips = little Tags on the screen
-          // Wrap(
-          //   spacing: 5,
-          //   runSpacing: 5,
-          //   children: [
-          //     Chip(
-          //       label: Text('HTML'),
-          //       backgroundColor: Color(0xFFF5F5F5),
-          //       shape: RoundedRectangleBorder(
-          //         borderRadius: BorderRadius.circular(20),
-          //       ),
-          //       padding: EdgeInsets.symmetric(horizontal: 2.0, vertical: 5),
-          //     ),
-          //     Chip(
-          //       label: Text('SS'),
-          //       labelStyle: TextStyle(fontSize: 8),
-          //       avatar: CircleAvatar(radius: 10.0, child: Text('C')),
-          //       backgroundColor: Color.fromARGB(0, 23, 42, 214),
-          //       padding: EdgeInsets.symmetric(horizontal: 2, vertical: 0.12),
-          //     ),
-          //   ],
-          // ),
-          Wrap(
-            spacing: 8.0, // Space between chips
-            runSpacing: 8.0, // Space between rows
-            children: [
-              OutlinedButton(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.blue.shade300, width: 1.5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                BubbleNormalImage(
+                  id: 'id001',
+                  image: _image(),
+                  color: Colors.purpleAccent,
+                  tail: true,
+                  delivered: true,
                 ),
-                child: Text(
-                  'using HTML',
-                  style: TextStyle(fontSize: 10, color: Colors.blue.shade700),
+                BubbleNormalAudio(
+                  color: Color(0xFFE8E8EE),
+                  duration: duration.inSeconds.toDouble(),
+                  position: position.inSeconds.toDouble(),
+                  isPlaying: isPlaying,
+                  isLoading: isLoading,
+                  isPause: isPause,
+                  onSeekChanged: _changeSeek,
+                  onPlayPauseButtonClick: _playAudio,
+                  sent: true,
                 ),
+                BubbleNormal(
+                  text: 'bubble normal with tail',
+                  isSender: false,
+                  color: Color(0xFF1B97F3),
+                  tail: true,
+                  textStyle: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                BubbleNormal(
+                  text: 'bubble normal with tail',
+                  isSender: true,
+                  color: Color(0xFFE8E8EE),
+                  tail: true,
+                  sent: true,
+                ),
+                DateChip(date: new DateTime(now.year, now.month, now.day - 2)),
+                BubbleNormal(
+                  text: 'bubble normal without tail',
+                  isSender: false,
+                  color: Color(0xFF1B97F3),
+                  tail: false,
+                  textStyle: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                BubbleNormal(
+                  text: 'bubble normal without tail',
+                  color: Color(0xFFE8E8EE),
+                  tail: false,
+                  sent: true,
+                  seen: true,
+                  delivered: true,
+                ),
+                BubbleSpecialOne(
+                  text: 'bubble special one with tail',
+                  isSender: false,
+                  color: Color(0xFF1B97F3),
+                  textStyle: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                DateChip(date: new DateTime(now.year, now.month, now.day - 1)),
+                BubbleSpecialOne(
+                  text: 'bubble special one with tail',
+                  color: Color(0xFFE8E8EE),
+                  seen: true,
+                ),
+                BubbleSpecialOne(
+                  text: 'bubble special one without tail',
+                  isSender: false,
+                  tail: false,
+                  color: Color(0xFF1B97F3),
+                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                BubbleSpecialOne(
+                  text: 'bubble special one without tail',
+                  tail: false,
+                  color: Color(0xFFE8E8EE),
+                  sent: true,
+                ),
+                BubbleSpecialTwo(
+                  text: 'bubble special tow with tail',
+                  isSender: false,
+                  color: Color(0xFF1B97F3),
+                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                DateChip(date: now),
+                BubbleSpecialTwo(
+                  text: 'bubble special tow with tail',
+                  isSender: true,
+                  color: Color(0xFFE8E8EE),
+                  sent: true,
+                ),
+                BubbleSpecialTwo(
+                  text: 'bubble special tow without tail',
+                  isSender: false,
+                  tail: false,
+                  color: Color(0xFF1B97F3),
+                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                BubbleSpecialTwo(
+                  text: 'bubble special tow without tail',
+                  tail: false,
+                  color: Color(0xFFE8E8EE),
+                  delivered: true,
+                ),
+                BubbleSpecialThree(
+                  text: 'bubble special three without tail',
+                  color: Color(0xFF1B97F3),
+                  tail: false,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+                BubbleSpecialThree(
+                  text: 'bubble special three with tail',
+                  color: Color(0xFF1B97F3),
+                  tail: true,
+                  textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+                BubbleSpecialThree(
+                  text: "bubble special three without tail",
+                  color: Color(0xFFE8E8EE),
+                  tail: false,
+                  isSender: false,
+                ),
+                BubbleSpecialThree(
+                  text: "bubble special three with tail",
+                  color: Color(0xFFE8E8EE),
+                  tail: true,
+                  isSender: false,
+                ),
+                SizedBox(height: 100),
+              ],
+            ),
+          ),
+          MessageBar(
+            onSend: (message) => print(message),
+            actions: [
+              InkWell(
+                child: Icon(Icons.add, color: Colors.black, size: 24),
+                onTap: () {},
               ),
-
-              OutlinedButton(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.green.shade300, width: 1.5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                ),
-                child: Text(
-                  'using CSS',
-                  style: TextStyle(fontSize: 10, color: Colors.green.shade700),
-                ),
-              ),
-
-              OutlinedButton(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.orange.shade300, width: 1),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                ),
-                child: Text(
-                  'using JS',
-                  style: TextStyle(fontSize: 10, color: Colors.orange.shade700),
+              Padding(
+                padding: EdgeInsets.only(left: 8, right: 8),
+                child: InkWell(
+                  child: Icon(Icons.camera_alt, color: Colors.green, size: 24),
+                  onTap: () {},
                 ),
               ),
             ],
-          ),
-          Spacer(),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                // Left button - Purple mic
-                FloatingActionButton(
-                  mini: true, // Makes it smaller
-                  onPressed: () {},
-                  backgroundColor: Color(0xFF5956FC),
-                  child: Icon(Icons.mic, color: Colors.white, size: 20),
-                ),
-
-                SizedBox(width: 12),
-                // Text field in the middle :)
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Ask what\'s on your mind...',
-                      filled: true,
-                      fillColor: Colors.grey.shade100,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: BorderSide.none, // No border line
-                      ),
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                    ),
-                  ),
-                ),
-
-                SizedBox(width: 12),
-                // Right button - Green send
-                FloatingActionButton(
-                  mini: true,
-                  onPressed: () {},
-                  backgroundColor: Color(0xFF4CAF50),
-                  child: Icon(Icons.send, color: Colors.white, size: 20),
-                ),
-              ],
-            ),
           ),
         ],
       ),

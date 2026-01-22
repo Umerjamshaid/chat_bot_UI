@@ -182,3 +182,22 @@ I modified the chip buttons in `lib/chat_screen.dart` to make them smaller and m
 - Increased horizontal padding stretches the chips horizontally while reduced vertical padding makes them thinner.
 - Consistent styling across all chips creates a more polished look.
 - The stretched appearance gives the chips a more modern, elongated design.
+
+## Chat Screen 2 Bubble Integration
+
+I merged the provided chat bubble demo code into `lib/Tests/chat_screen2.dart`, integrating various bubble widgets and a message bar.
+
+### What I did:
+- Added required imports for `chat_bubbles` package.
+- Modified the `ChatScreen` widget to accept a `title` parameter.
+- Added state variables for audio playback (`duration`, `position`, `isPlaying`, `isLoading`, `isPause`).
+- Implemented helper methods `_changeSeek`, `_playAudio`, and `_image` for audio and image handling.
+- Replaced the original body with a `Stack` containing a `SingleChildScrollView` with various bubble widgets (BubbleNormal, BubbleNormalImage, BubbleNormalAudio, BubbleSpecialOne, BubbleSpecialTwo, BubbleSpecialThree, DateChip) and a `MessageBar` at the bottom.
+- Added the `now` variable for date chips.
+
+### Why this works:
+- The chat screen now displays a comprehensive demo of different chat bubble types, showcasing various UI elements.
+- Audio bubbles include playback controls that update state properly.
+- The MessageBar provides a modern input interface with action buttons.
+- All widgets from the chat_bubbles package are properly integrated and functional.
+- The scrollable layout ensures all content is accessible on different screen sizes.
