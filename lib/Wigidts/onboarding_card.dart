@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingCard extends StatelessWidget {
-  final String image, title, description, buttonText;
-  final Function onPressed;
+  final String image, title, description;
 
   const OnboardingCard({
     super.key,
     required this.image,
     required this.title,
     required this.description,
-    required this.buttonText,
-    required this.onPressed,
   });
 
   @override
@@ -60,12 +57,12 @@ class OnboardingCard extends StatelessWidget {
                 ),
               ],
             ),
-            MaterialButton(
-              minWidth: 200,
-              onPressed: () => onPressed(),
-              color: Color(0xFF5956FC),
-              child: Text(buttonText),
-            ),
+            // MaterialButton(
+            //   minWidth: 200,
+            //   onPressed: () => onPressed(),
+            //   color: Color(0xFF5956FC),
+            //   child: Text(buttonText),
+            // ),
           ],
         ),
       ),

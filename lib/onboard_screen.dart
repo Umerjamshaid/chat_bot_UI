@@ -111,16 +111,12 @@ class _OnboardScreenState extends State<OnboardScreen> {
       title: 'Start free Conversation',
       description:
           'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
-      buttonText: 'Next',
-      onPressed: () {}, // handled globally
     ),
     OnboardingCard(
       image: 'assets/images/onboarding3.png',
       title: 'Leave your voice instantly',
       description:
           'No login required for get started chat with our AI powered chatbot. Feel free to ask what you want to know.',
-      buttonText: 'Next',
-      onPressed: () {},
     ),
   ];
 

@@ -65,9 +65,7 @@ class CustomEmailField extends StatelessWidget {
       ),
 
       // Text color for typing --
-      style: TextStyle(
-        color: Color(0xFF5B5AF7), // ✅ Purple text
-      ),
+      style: TextStyle(color: Color(0xFF5B5AF7)),
 
       validator: validator ?? Validators.validateEmail,
     );

@@ -14,7 +14,7 @@ class CustomPhoneField extends StatelessWidget {
     required this.controller,
     this.hintText = 'Enter your Phone Number',
     this.lableText = 'Number',
-    this.validator, // User can provide their own
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,6 @@ class CustomPhoneField extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
 
-      // Use custom validator if provided, otherwise use default
       validator: validator ?? Validators.validatePhone,
     );
   }

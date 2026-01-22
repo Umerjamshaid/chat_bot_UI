@@ -19,16 +19,16 @@ class AuthButtonsSection extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 250),
       padding: EdgeInsets.only(
-        bottom: bottom + 16,
+        bottom: bottom + 40,
         left: 20,
         right: 20,
-        top: 8,
+        top: 40,
       ),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, -2),
           ),
@@ -44,7 +44,7 @@ class AuthButtonsSection extends StatelessWidget {
             onTap: onEmailSignUp,
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 30),
 
           // Login Button (Tertiary/Outline)
           _OutlineButton(text: 'Login To Existing Account', onTap: onLogin),

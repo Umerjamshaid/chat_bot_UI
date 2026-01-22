@@ -14,7 +14,7 @@ class CustomNameField extends StatelessWidget {
     required this.controller,
     this.hintText = 'Enter your Name',
     this.lableText = 'Name',
-    this.validator, // User can provide their own
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -30,7 +30,6 @@ class CustomNameField extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
 
-      // Use custom validator if provided, otherwise use default
       validator: validator ?? Validators.validateName,
     );
   }

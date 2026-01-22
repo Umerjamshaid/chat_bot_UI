@@ -167,3 +167,18 @@ I completely redesigned the `lib/chat_screen.dart` drawer to match a professiona
 - The search functionality is prominently placed for quick access.
 - Professional styling with proper spacing, colors, and icons enhances the overall app quality.
 - The green send button follows common UI patterns for send actions.
+
+## Chat Screen Chips Adjustment
+
+I modified the chip buttons in `lib/chat_screen.dart` to make them smaller and more stretched.
+
+### What I did:
+- Reduced the font size from 12 to 10 for all chip texts.
+- Decreased vertical padding from 6 to 4 and increased horizontal padding from 12 to 16 for the first two chips.
+- Standardized the third chip's padding to match (horizontal: 16, vertical: 4) and reduced border radius from 15 to 4 for consistency.
+
+### Why this works:
+- Smaller font size makes the chips more compact.
+- Increased horizontal padding stretches the chips horizontally while reduced vertical padding makes them thinner.
+- Consistent styling across all chips creates a more polished look.
+- The stretched appearance gives the chips a more modern, elongated design.

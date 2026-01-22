@@ -1,3 +1,4 @@
+import 'package:bot/Registration/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -35,7 +36,12 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => LoginScreen()),
+              );
+            },
             style: TextButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Color(0xFF5956FC),
@@ -284,11 +290,11 @@ class _ChatScreenState extends State<ChatScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 ),
                 child: Text(
                   'using HTML',
-                  style: TextStyle(fontSize: 12, color: Colors.blue.shade700),
+                  style: TextStyle(fontSize: 10, color: Colors.blue.shade700),
                 ),
               ),
 
@@ -299,26 +305,26 @@ class _ChatScreenState extends State<ChatScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 ),
                 child: Text(
                   'using CSS',
-                  style: TextStyle(fontSize: 12, color: Colors.green.shade700),
+                  style: TextStyle(fontSize: 10, color: Colors.green.shade700),
                 ),
               ),
 
               OutlinedButton(
                 onPressed: () {},
                 style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.orange.shade300, width: 1.5),
+                  side: BorderSide(color: Colors.orange.shade300, width: 1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 ),
                 child: Text(
                   'using JS',
-                  style: TextStyle(fontSize: 12, color: Colors.orange.shade700),
+                  style: TextStyle(fontSize: 10, color: Colors.orange.shade700),
                 ),
               ),
             ],
