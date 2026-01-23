@@ -146,6 +146,22 @@ I modified the `lib/chat_screen.dart` file to enhance the drawer with background
 - The chat list provides a familiar interface for users to browse and select previous conversations.
 - The layout uses Expanded to fill the remaining space, ensuring the list scrolls if there are many chats.
 
+## Chat Screen Body Layout Fix
+
+I modified the `lib/chat_screen.dart` file to fix the layout error on line 241 and wrap the entire body in a Stack widget.
+
+### What I did:
+- Replaced the invalid `body: Expanded(...)` with `body: Stack(...)` containing two children.
+- The first child is a `SingleChildScrollView` with `Padding` (bottom: 80) containing the main content (image, texts, chips, bubbles).
+- The second child is a `Positioned` widget at the bottom with the message input bar (mic button, text field, send button).
+- This creates a floating message bar that stays at the bottom while the content above scrolls.
+
+### Why this works:
+- Fixes the error where `Expanded` cannot be used directly as Scaffold's body since it requires a parent with constraints.
+- The Stack allows layering the scrollable content with the fixed-position message bar.
+- The bottom padding on the scroll view prevents content from being hidden behind the message bar.
+- Provides a modern chat interface where the input stays accessible at the bottom.
+
 ## Chat Screen Drawer Complete Redesign
 
 I completely redesigned the `lib/chat_screen.dart` drawer to match a professional ChatGPT-style interface.

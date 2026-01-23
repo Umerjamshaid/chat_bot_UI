@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ffi';
 
 import 'package:bot/onboard_screen.dart';
 import 'package:flutter/material.dart';
@@ -28,11 +29,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset(
-          'assets/images/bot_splash.png',
-          width: 200,
-          height: 200,
-          fit: BoxFit.cover,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 41),
+          child: Image.asset(
+            'assets/images/bot_splash.png',
+            width: 200,
+            height: 200,
+          ),
         ),
       ),
     );
