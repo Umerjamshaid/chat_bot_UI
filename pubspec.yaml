@@ -38,6 +38,9 @@ dependencies:
   smooth_page_indicator: ^2.0.1
   ionicons: ^0.2.2
   chat_bubbles: ^1.8.0
+  audioplayers: ^6.5.1
+  cached_network_image: ^3.4.1
+  dash_chat_2: ^0.0.21
 
 dev_dependencies:
   flutter_test:
