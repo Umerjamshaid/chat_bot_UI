@@ -55,6 +55,7 @@ class AuthButtonsSection extends StatelessWidget {
 }
 
 /* ----------  PRIMARY BUTTON (Blue/Purple with Icon)  ---------- */
+// ignore: unused_element
 class _PrimaryButton extends StatelessWidget {
   final String text;
   final IconData icon;

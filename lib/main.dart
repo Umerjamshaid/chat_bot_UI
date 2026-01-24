@@ -1,6 +1,5 @@
 import 'package:bot/Splash.dart';
 import 'package:bot/onboard_screen.dart';
-import 'package:bot/test.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -2,7 +2,6 @@ import 'package:bot/Registration/login_screen.dart';
 import 'package:chat_bubbles/bubbles/bubble_normal.dart';
 import 'package:chat_bubbles/bubbles/bubble_normal_audio.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
