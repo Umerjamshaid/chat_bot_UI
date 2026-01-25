@@ -427,7 +427,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: Icon(Icons.mic, color: Colors.white, size: 20),
                   ),
 
-                  SizedBox(width: 12),
+                  Spacer(),
                   // Text field in the middle :)
                   Expanded(
                     child: TextField(

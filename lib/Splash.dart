@@ -28,13 +28,38 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 41),
-          child: Image.asset(
-            'assets/images/bot_splash.png',
-            width: 200,
-            height: 200,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Your logo image
+            Padding(
+              padding: const EdgeInsets.only(left: 41),
+              child: Image.asset(
+                'assets/images/bot_splash.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+
+            Spacer(), // Pushes version text to bottom
+            // Version and creator info at bottom
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.code, size: 14, color: Colors.grey),
+                    SizedBox(width: 4),
+                    Text(
+                      'Made by Umer • v1.0.0',
+                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30), // Bottom padding
+              ],
+            ),
+          ],
         ),
       ),
     );
